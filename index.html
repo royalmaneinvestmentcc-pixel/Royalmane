@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Mane Investment CC | Business. Branding. Activation.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f0f0f;
+    color: #fff;
+}
+
+header {
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: gold;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 25px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: gold;
+}
+
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+    color: gold;
+}
+
+.hero p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: gold;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+}
+
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 50px;
+    color: gold;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #222;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: gold;
+}
+
+.card p {
+    color: #bbb;
+}
+
+.about {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+footer {
+    background: #000;
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+@media(max-width:768px){
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Royal Mane Investment CC</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>We Build Businesses That Dominate</h1>
+        <p>Professional Activations. Strategic Branding. Business Development Solutions.</p>
+        <a href="#contact" class="btn">Work With Us</a>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Brand Activations</h3>
+            <p>In-store activations, field marketing and promotional campaigns designed to drive real engagement and sales.</p>
+        </div>
+        <div class="card">
+            <h3>Sales Strategy</h3>
+            <p>Structured sales systems, proposal writing and revenue optimization strategies that close deals.</p>
+        </div>
+        <div class="card">
+            <h3>Business Consulting</h3>
+            <p>From startup structuring to growth scaling — we help you operate like a premium brand.</p>
+        </div>
+        <div class="card">
+            <h3>Digital Presence</h3>
+            <p>Professional website design, online branding and positioning that makes you stand out.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Royal Mane</h2>
+    <div class="about">
+        <p>
+        Royal Mane Investment CC is built on execution, strategy and results. 
+        We help individuals and companies transition from average operations 
+        to premium positioning. Our focus is simple — build systems that generate income.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact">
+        <p><strong>Phone:</strong> 081 205 4436 / 081 337 2092</p>
+        <p><strong>Email:</strong> royalmaneinvestmentcc@gmail.com</p>
+        <p><strong>Location:</strong> Namibia</p>
+        <a href="mailto:royalmaneinvestmentcc@gmail.com" class="btn">Send Email</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Royal Mane Investment CC. All Rights Reserved.
+</footer>
+
+</body>
+</html>
