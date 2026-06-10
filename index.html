@@ -1,177 +1,454 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Royal Mane Housing Intelligence Platform</title>
+<title>Royal Mane Investment CC | Housing Demand Intelligence</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #0b1220;
-  color: white;
+
+/* =======================
+   BASE STYLES
+======================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-nav {
-  background: #0f172a;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
+body{
+font-family:'Inter',sans-serif;
+background:#081426;
+color:#fff;
+overflow-x:hidden;
 }
 
-nav a {
-  color: #38bdf8;
-  text-decoration: none;
+/* =======================
+   COLORS
+======================= */
+
+:root{
+--gold:#d4af37;
+--gold-light:#f5d56b;
+--navy:#081426;
+--navy2:#0f1f35;
+--text:#cbd5e1;
 }
 
-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
+/* =======================
+   NAVBAR
+======================= */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:18px 8%;
+background:rgba(8,20,38,0.9);
+backdrop-filter:blur(12px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+border-bottom:1px solid rgba(212,175,55,0.2);
 }
 
-.hero {
-  text-align: center;
-  padding-top: 120px;
+nav .logo{
+font-family:'Cinzel',serif;
+color:var(--gold);
+font-size:1.3rem;
+letter-spacing:2px;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background: #38bdf8;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
+nav a{
+color:white;
+text-decoration:none;
+font-size:0.95rem;
 }
 
-.card {
-  background: #111827;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px;
+nav a:hover{
+color:var(--gold);
 }
 
-#admin {
-  display: none;
+/* =======================
+   HERO
+======================= */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 8% 80px;
+
+/* REPLACE THIS IMAGE */
+background:
+linear-gradient(rgba(8,20,38,0.85),rgba(8,20,38,0.95)),
+url("assets/hero.jpg");
+
+background-size:cover;
+background-position:center;
 }
+
+.hero-content{
+max-width:900px;
+}
+
+.crest{
+width:140px;
+margin-bottom:20px;
+filter:drop-shadow(0 0 20px rgba(212,175,55,0.3));
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:4.5rem;
+color:var(--gold);
+margin-bottom:10px;
+}
+
+.hero h2{
+font-weight:400;
+letter-spacing:4px;
+color:var(--text);
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.1rem;
+color:var(--text);
+max-width:750px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.cta{
+display:inline-block;
+padding:14px 32px;
+background:linear-gradient(135deg,var(--gold),var(--gold-light));
+color:#081426;
+font-weight:700;
+border-radius:50px;
+text-decoration:none;
+margin:10px;
+}
+
+/* =======================
+   SECTIONS
+======================= */
+
+section{
+padding:90px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h3{
+font-family:'Cinzel',serif;
+font-size:2.5rem;
+color:var(--gold);
+}
+
+/* =======================
+   GRID
+======================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(212,175,55,0.15);
+padding:30px;
+border-radius:16px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+}
+
+.card h4{
+color:var(--gold);
+margin-bottom:10px;
+}
+
+/* =======================
+   STATS
+======================= */
+
+.stats{
+background:#0b1a30;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+text-align:center;
+}
+
+.number{
+font-size:3rem;
+color:var(--gold);
+font-weight:700;
+}
+
+/* =======================
+   PRICING
+======================= */
+
+.price{
+font-size:2rem;
+color:var(--gold);
+font-weight:700;
+margin:10px 0;
+}
+
+/* =======================
+   CONTACT
+======================= */
+
+.contact-box{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.03);
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(212,175,55,0.15);
+text-align:center;
+}
+
+/* =======================
+   FOOTER
+======================= */
+
+footer{
+padding:40px;
+text-align:center;
+background:#050b14;
+border-top:1px solid rgba(212,175,55,0.1);
+color:#94a3b8;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#contact">Contact</a>
-  <a href="#" onclick="login()">Admin</a>
+<div class="logo">ROYAL MANE</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
-<section id="home" class="hero">
-  <h1>Royal Mane Investment CC</h1>
-  <p>Housing Demand Intelligence Platform</p>
+<!-- HERO -->
+<section class="hero">
+
+<div class="hero-content">
+
+<!-- LION CREST IMAGE -->
+<img src="assets/lion-crest.png" class="crest" alt="Royal Mane Crest">
+
+<h1>ROYAL MANE</h1>
+
+<h2>HOUSING DEMAND INTELLIGENCE</h2>
+
+<p>
+Transforming housing demand into development intelligence.
+We help developers, investors, and councils make data-driven housing decisions across Namibia.
+</p>
+
+<a href="#contact" class="cta">Request Report</a>
+<a href="#pricing" class="cta">View Pricing</a>
+
+</div>
+
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-  <h2>About</h2>
-  <p>We collect verified housing demand data across Namibia for developers, councils, and investors.</p>
+
+<div class="section-title">
+<h3>About Royal Mane</h3>
+</div>
+
+<p style="max-width:900px;margin:auto;text-align:center;color:#cbd5e1;">
+Royal Mane Investment CC is a Housing Demand Intelligence company that collects,
+verifies, and analyzes real housing demand data to support smarter development decisions
+for developers, councils, and investors.
+</p>
+
 </section>
 
+<!-- SERVICES -->
+<section id="services">
+
+<div class="section-title">
+<h3>Services</h3>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h4>Housing Demand Intelligence</h4>
+<p>Verified housing demand datasets by region and town.</p>
+</div>
+
+<div class="card">
+<h4>Student Accommodation Analysis</h4>
+<p>Identify shortages and opportunities near institutions.</p>
+</div>
+
+<div class="card">
+<h4>Plot Buyer Intelligence</h4>
+<p>Active demand tracking for land development opportunities.</p>
+</div>
+
+<div class="card">
+<h4>Development Feasibility</h4>
+<p>Validate housing demand before construction begins.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats">
+
+<div class="section-title">
+<h3>Live Demand Network</h3>
+</div>
+
+<div class="stats-grid">
+
+<div>
+<div class="number">120+</div>
+Housing Seekers
+</div>
+
+<div>
+<div class="number">60+</div>
+Student Requests
+</div>
+
+<div>
+<div class="number">10+</div>
+Plot Buyers
+</div>
+
+<div>
+<div class="number">4</div>
+Regions Covered
+</div>
+
+</div>
+
+</section>
+
+<!-- PRICING -->
 <section id="pricing">
-  <h2>Pricing</h2>
 
-  <div class="card">Basic Access — N$2,500/month</div>
-  <div class="card">Standard Access — N$7,500/month</div>
-  <div class="card">Premium — N$15,000/month</div>
-  <div class="card">Verified Leads — N$75–N$250</div>
+<div class="section-title">
+<h3>Pricing</h3>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h4>Demand Snapshot</h4>
+<div class="price">N$5,000</div>
+<p>Basic housing demand overview report.</p>
+</div>
+
+<div class="card">
+<h4>Town Housing Report</h4>
+<div class="price">N$15,000+</div>
+<p>Full town-level housing demand analysis.</p>
+</div>
+
+<div class="card">
+<h4>Student Housing Report</h4>
+<div class="price">N$10,000+</div>
+<p>Student accommodation demand insights.</p>
+</div>
+
+<div class="card">
+<h4>Feasibility Study</h4>
+<div class="price">N$25,000+</div>
+<p>Pre-development demand validation report.</p>
+</div>
+
+</div>
+
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-  <h2>Submit Housing Request</h2>
 
-  <input id="name" placeholder="Name">
-  <input id="email" placeholder="Email">
-  <textarea id="message" placeholder="Housing need"></textarea>
+<div class="section-title">
+<h3>Contact Royal Mane</h3>
+</div>
 
-  <button onclick="submitLead()">Submit</button>
+<div class="contact-box">
 
-  <p id="status"></p>
+<p><strong>Royal Mane Investment CC</strong></p>
+
+<br>
+
+<p>Phone: 081 337 2092</p>
+<p>Email: royalmaneinvestmentcc@gmail.com</p>
+
+<br>
+
+<a class="cta" href="mailto:royalmaneinvestmentcc@gmail.com">
+Request Intelligence Report
+</a>
+
+</div>
+
 </section>
 
-<!-- ADMIN -->
-<section id="admin">
-  <h2>Admin Dashboard</h2>
-  <button onclick="loadLeads()">Refresh Leads</button>
-  <div id="leads"></div>
-</section>
-
-<!-- SUPABASE -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<script>
-const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
-const client = supabase.createClient(supabaseUrl, supabaseKey);
-
-// SUBMIT LEAD
-async function submitLead() {
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let message = document.getElementById("message").value;
-
-  let { error } = await client.from("leads").insert([
-    { name, email, message }
-  ]);
-
-  if (!error) {
-    document.getElementById("status").innerText = "Submitted successfully.";
-  } else {
-    document.getElementById("status").innerText = "Error submitting.";
-  }
-}
-
-// SIMPLE ADMIN LOGIN
-function login() {
-  let pass = prompt("Enter Admin Password");
-
-  if (pass === "royalmane2026") {
-    document.getElementById("admin").style.display = "block";
-    loadLeads();
-  } else {
-    alert("Wrong password");
-  }
-}
-
-// LOAD LEADS
-async function loadLeads() {
-  let { data } = await client.from("leads").select("*");
-
-  let container = document.getElementById("leads");
-  container.innerHTML = "";
-
-  data.forEach(l => {
-    container.innerHTML += `
-      <div class="card">
-        <b>${l.name}</b><br>
-        ${l.email}<br>
-        ${l.message}
-      </div>
-    `;
-  });
-}
-</script>
+<!-- FOOTER -->
+<footer>
+Royal Mane Investment CC © 2026 — Housing Demand Intelligence Platform
+</footer>
 
 </body>
 </html>
