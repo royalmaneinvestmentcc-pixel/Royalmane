@@ -1,454 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Royal Mane Investment CC | Housing Demand Intelligence</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-/* =======================
-   BASE STYLES
-======================= */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Inter',sans-serif;
-background:#081426;
-color:#fff;
-overflow-x:hidden;
-}
-
-/* =======================
-   COLORS
-======================= */
-
-:root{
---gold:#d4af37;
---gold-light:#f5d56b;
---navy:#081426;
---navy2:#0f1f35;
---text:#cbd5e1;
-}
-
-/* =======================
-   NAVBAR
-======================= */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-padding:18px 8%;
-background:rgba(8,20,38,0.9);
-backdrop-filter:blur(12px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-border-bottom:1px solid rgba(212,175,55,0.2);
-}
-
-nav .logo{
-font-family:'Cinzel',serif;
-color:var(--gold);
-font-size:1.3rem;
-letter-spacing:2px;
-}
-
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-size:0.95rem;
-}
-
-nav a:hover{
-color:var(--gold);
-}
-
-/* =======================
-   HERO
-======================= */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:120px 8% 80px;
-
-/* REPLACE THIS IMAGE */
-background:
-linear-gradient(rgba(8,20,38,0.85),rgba(8,20,38,0.95)),
-url("assets/hero.jpg");
-
-background-size:cover;
-background-position:center;
-}
-
-.hero-content{
-max-width:900px;
-}
-
-.crest{
-width:140px;
-margin-bottom:20px;
-filter:drop-shadow(0 0 20px rgba(212,175,55,0.3));
-}
-
-.hero h1{
-font-family:'Cinzel',serif;
-font-size:4.5rem;
-color:var(--gold);
-margin-bottom:10px;
-}
-
-.hero h2{
-font-weight:400;
-letter-spacing:4px;
-color:var(--text);
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:1.1rem;
-color:var(--text);
-max-width:750px;
-margin:auto;
-margin-bottom:30px;
-}
-
-.cta{
-display:inline-block;
-padding:14px 32px;
-background:linear-gradient(135deg,var(--gold),var(--gold-light));
-color:#081426;
-font-weight:700;
-border-radius:50px;
-text-decoration:none;
-margin:10px;
-}
-
-/* =======================
-   SECTIONS
-======================= */
-
-section{
-padding:90px 8%;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h3{
-font-family:'Cinzel',serif;
-font-size:2.5rem;
-color:var(--gold);
-}
-
-/* =======================
-   GRID
-======================= */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(212,175,55,0.15);
-padding:30px;
-border-radius:16px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border-color:var(--gold);
-}
-
-.card h4{
-color:var(--gold);
-margin-bottom:10px;
-}
-
-/* =======================
-   STATS
-======================= */
-
-.stats{
-background:#0b1a30;
-}
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:25px;
-text-align:center;
-}
-
-.number{
-font-size:3rem;
-color:var(--gold);
-font-weight:700;
-}
-
-/* =======================
-   PRICING
-======================= */
-
-.price{
-font-size:2rem;
-color:var(--gold);
-font-weight:700;
-margin:10px 0;
-}
-
-/* =======================
-   CONTACT
-======================= */
-
-.contact-box{
-max-width:700px;
-margin:auto;
-background:rgba(255,255,255,0.03);
-padding:40px;
-border-radius:20px;
-border:1px solid rgba(212,175,55,0.15);
-text-align:center;
-}
-
-/* =======================
-   FOOTER
-======================= */
-
-footer{
-padding:40px;
-text-align:center;
-background:#050b14;
-border-top:1px solid rgba(212,175,55,0.1);
-color:#94a3b8;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.8rem;
-}
-
-nav ul{
-display:none;
-}
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Mane Investment CC | Housing Demand Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-<div class="logo">ROYAL MANE</div>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#pricing">Pricing</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-crest">RM</div>
+        ROYAL MANE
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-crest">🦁</div>
+      <h1>ROYAL MANE</h1>
+      <p class="hero-subtitle">HOUSING DEMAND INTELLIGENCE</p>
+      <p>Transforming housing demand data into actionable intelligence for developers, investors, and government authorities across Namibia. Make data-driven decisions with verified market demand insights.</p>
+      <div class="hero-cta">
+        <a href="contact.html" class="cta">Request Intelligence Report</a>
+        <a href="pricing.html" class="cta cta-secondary">View Pricing</a>
+      </div>
+    </div>
+  </section>
 
-<div class="hero-content">
+  <!-- KEY STATISTICS -->
+  <section class="alt">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Live Demand Network</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">Active Housing Seekers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">60+</div>
+          <div class="stat-label">Student Housing Requests</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Commercial Plot Buyers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Regions Covered</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- LION CREST IMAGE -->
-<img src="assets/lion-crest.png" class="crest" alt="Royal Mane Crest">
+  <!-- FEATURED SERVICES -->
+  <section>
+    <div class="section-container">
+      <div class="section-header">
+        <h2>What We Offer</h2>
+        <div class="section-line"></div>
+        <p>Comprehensive housing market intelligence tailored for strategic decision-makers</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h4>Housing Demand Intelligence</h4>
+          <p>Verified datasets tracking active housing demand by region, town, and demographic segment. Real market intelligence for informed development decisions.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h4>Student Accommodation Analysis</h4>
+          <p>Strategic analysis of student housing demand near educational institutions. Identify gaps and premium opportunities in the academic accommodation market.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏘️</div>
+          <h4>Development Feasibility Studies</h4>
+          <p>Pre-construction demand validation reports. De-risk housing projects with verified market demand data before development begins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h1>ROYAL MANE</h1>
+  <!-- CTA SECTION -->
+  <section class="accent">
+    <div class="section-container" style="max-width: 800px; text-align: center;">
+      <h2 style="margin-bottom: 20px;">Ready to Make Data-Driven Housing Decisions?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--text-light);">
+        Join developers, municipal authorities, and institutional investors using Royal Mane intelligence for strategic market advantage.
+      </p>
+      <a href="contact.html" class="cta">Start Your Demand Analysis</a>
+    </div>
+  </section>
 
-<h2>HOUSING DEMAND INTELLIGENCE</h2>
-
-<p>
-Transforming housing demand into development intelligence.
-We help developers, investors, and councils make data-driven housing decisions across Namibia.
-</p>
-
-<a href="#contact" class="cta">Request Report</a>
-<a href="#pricing" class="cta">View Pricing</a>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-
-<div class="section-title">
-<h3>About Royal Mane</h3>
-</div>
-
-<p style="max-width:900px;margin:auto;text-align:center;color:#cbd5e1;">
-Royal Mane Investment CC is a Housing Demand Intelligence company that collects,
-verifies, and analyzes real housing demand data to support smarter development decisions
-for developers, councils, and investors.
-</p>
-
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-
-<div class="section-title">
-<h3>Services</h3>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h4>Housing Demand Intelligence</h4>
-<p>Verified housing demand datasets by region and town.</p>
-</div>
-
-<div class="card">
-<h4>Student Accommodation Analysis</h4>
-<p>Identify shortages and opportunities near institutions.</p>
-</div>
-
-<div class="card">
-<h4>Plot Buyer Intelligence</h4>
-<p>Active demand tracking for land development opportunities.</p>
-</div>
-
-<div class="card">
-<h4>Development Feasibility</h4>
-<p>Validate housing demand before construction begins.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- STATS -->
-<section class="stats">
-
-<div class="section-title">
-<h3>Live Demand Network</h3>
-</div>
-
-<div class="stats-grid">
-
-<div>
-<div class="number">120+</div>
-Housing Seekers
-</div>
-
-<div>
-<div class="number">60+</div>
-Student Requests
-</div>
-
-<div>
-<div class="number">10+</div>
-Plot Buyers
-</div>
-
-<div>
-<div class="number">4</div>
-Regions Covered
-</div>
-
-</div>
-
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-
-<div class="section-title">
-<h3>Pricing</h3>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h4>Demand Snapshot</h4>
-<div class="price">N$5,000</div>
-<p>Basic housing demand overview report.</p>
-</div>
-
-<div class="card">
-<h4>Town Housing Report</h4>
-<div class="price">N$15,000+</div>
-<p>Full town-level housing demand analysis.</p>
-</div>
-
-<div class="card">
-<h4>Student Housing Report</h4>
-<div class="price">N$10,000+</div>
-<p>Student accommodation demand insights.</p>
-</div>
-
-<div class="card">
-<h4>Feasibility Study</h4>
-<div class="price">N$25,000+</div>
-<p>Pre-development demand validation report.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-
-<div class="section-title">
-<h3>Contact Royal Mane</h3>
-</div>
-
-<div class="contact-box">
-
-<p><strong>Royal Mane Investment CC</strong></p>
-
-<br>
-
-<p>Phone: 081 337 2092</p>
-<p>Email: royalmaneinvestmentcc@gmail.com</p>
-
-<br>
-
-<a class="cta" href="mailto:royalmaneinvestmentcc@gmail.com">
-Request Intelligence Report
-</a>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-Royal Mane Investment CC © 2026 — Housing Demand Intelligence Platform
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Royal Mane Investment CC</h4>
+          <p>Housing Demand Intelligence Platform</p>
+          <p>Serving Namibia's development community with verified market data.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><strong>Phone:</strong> 081 337 2092</p>
+          <p><strong>Email:</strong> <a href="mailto:royalmaneinvestmentcc@gmail.com">royalmaneinvestmentcc@gmail.com</a></p>
+          <p><strong>Location:</strong> Namibia</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Royal Mane Investment CC © 2026 — Housing Demand Intelligence Platform</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
