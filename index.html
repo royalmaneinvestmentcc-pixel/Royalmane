@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Royal Mane Investment CC - Housing Intelligence Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Royal Mane Housing Intelligence Platform</title>
 
 <style>
 body {
@@ -12,214 +14,163 @@ body {
   color: white;
 }
 
-header {
-  padding: 40px;
-  text-align: center;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+nav {
+  background: #0f172a;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 nav a {
   color: #38bdf8;
-  margin: 10px;
   text-decoration: none;
-  font-weight: bold;
 }
 
 section {
-  padding: 40px;
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+.hero {
+  text-align: center;
+  padding-top: 120px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #38bdf8;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .card {
   background: #111827;
   padding: 15px;
-  border-radius: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
 }
 
-button {
-  background: #38bdf8;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-input, select, textarea {
-  width: 100%;
-  margin: 5px 0;
-  padding: 8px;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table td, .table th {
-  border: 1px solid #333;
-  padding: 8px;
+#admin {
+  display: none;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#contact">Contact</a>
+  <a href="#" onclick="login()">Admin</a>
+</nav>
+
+<section id="home" class="hero">
   <h1>Royal Mane Investment CC</h1>
-  <p>Housing Demand Intelligence System</p>
-  <nav>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#add">Add Lead</a>
-    <a href="#database">Database</a>
-    <a href="#reports">Reports</a>
-  </nav>
-</header>
-
-<!-- DASHBOARD -->
-<section id="dashboard">
-  <h2>Live Housing Demand Dashboard</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Total Leads</h3>
-      <p id="totalLeads">0</p>
-    </div>
-    <div class="card">
-      <h3>High Priority</h3>
-      <p id="highPriority">0</p>
-    </div>
-    <div class="card">
-      <h3>Students</h3>
-      <p id="students">0</p>
-    </div>
-    <div class="card">
-      <h3>Families</h3>
-      <p id="families">0</p>
-    </div>
-  </div>
+  <p>Housing Demand Intelligence Platform</p>
 </section>
 
-<!-- ADD LEAD -->
-<section id="add">
-  <h2>Add Housing Demand Lead</h2>
-
-  <input id="name" placeholder="Full Name">
-  <input id="contact" placeholder="Phone / Email">
-
-  <select id="type">
-    <option>Tenant</option>
-    <option>Student</option>
-    <option>Family</option>
-    <option>Business</option>
-  </select>
-
-  <select id="priority">
-    <option>Low</option>
-    <option>Medium</option>
-    <option>High</option>
-  </select>
-
-  <input id="location" placeholder="Location (e.g Ongwediva)">
-  <textarea id="notes" placeholder="Housing requirement details"></textarea>
-
-  <button onclick="addLead()">Add to Database</button>
+<section id="about">
+  <h2>About</h2>
+  <p>We collect verified housing demand data across Namibia for developers, councils, and investors.</p>
 </section>
 
-<!-- DATABASE -->
-<section id="database">
-  <h2>Housing Demand Database</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Priority</th>
-        <th>Location</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+<section id="pricing">
+  <h2>Pricing</h2>
+
+  <div class="card">Basic Access — N$2,500/month</div>
+  <div class="card">Standard Access — N$7,500/month</div>
+  <div class="card">Premium — N$15,000/month</div>
+  <div class="card">Verified Leads — N$75–N$250</div>
 </section>
 
-<!-- REPORTS -->
-<section id="reports">
-  <h2>Auto Generated Insight Report</h2>
-  <div class="card">
-    <p id="reportText">No data yet.</p>
-  </div>
+<section id="contact">
+  <h2>Submit Housing Request</h2>
+
+  <input id="name" placeholder="Name">
+  <input id="email" placeholder="Email">
+  <textarea id="message" placeholder="Housing need"></textarea>
+
+  <button onclick="submitLead()">Submit</button>
+
+  <p id="status"></p>
 </section>
+
+<!-- ADMIN -->
+<section id="admin">
+  <h2>Admin Dashboard</h2>
+  <button onclick="loadLeads()">Refresh Leads</button>
+  <div id="leads"></div>
+</section>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
-let leads = JSON.parse(localStorage.getItem("leads")) || [];
+const supabaseUrl = "YOUR_SUPABASE_URL";
+const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+const client = supabase.createClient(supabaseUrl, supabaseKey);
 
-function addLead() {
-  const lead = {
-    name: document.getElementById("name").value,
-    contact: document.getElementById("contact").value,
-    type: document.getElementById("type").value,
-    priority: document.getElementById("priority").value,
-    location: document.getElementById("location").value,
-    notes: document.getElementById("notes").value
-  };
+// SUBMIT LEAD
+async function submitLead() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
 
-  leads.push(lead);
-  localStorage.setItem("leads", JSON.stringify(leads));
+  let { error } = await client.from("leads").insert([
+    { name, email, message }
+  ]);
 
-  alert("Lead added successfully!");
-
-  updateUI();
+  if (!error) {
+    document.getElementById("status").innerText = "Submitted successfully.";
+  } else {
+    document.getElementById("status").innerText = "Error submitting.";
+  }
 }
 
-function updateUI() {
-  document.getElementById("totalLeads").innerText = leads.length;
+// SIMPLE ADMIN LOGIN
+function login() {
+  let pass = prompt("Enter Admin Password");
 
-  document.getElementById("highPriority").innerText =
-    leads.filter(l => l.priority === "High").length;
+  if (pass === "royalmane2026") {
+    document.getElementById("admin").style.display = "block";
+    loadLeads();
+  } else {
+    alert("Wrong password");
+  }
+}
 
-  document.getElementById("students").innerText =
-    leads.filter(l => l.type === "Student").length;
+// LOAD LEADS
+async function loadLeads() {
+  let { data } = await client.from("leads").select("*");
 
-  document.getElementById("families").innerText =
-    leads.filter(l => l.type === "Family").length;
+  let container = document.getElementById("leads");
+  container.innerHTML = "";
 
-  let table = "";
-  leads.forEach(l => {
-    table += `
-      <tr>
-        <td>${l.name}</td>
-        <td>${l.type}</td>
-        <td>${l.priority}</td>
-        <td>${l.location}</td>
-      </tr>
+  data.forEach(l => {
+    container.innerHTML += `
+      <div class="card">
+        <b>${l.name}</b><br>
+        ${l.email}<br>
+        ${l.message}
+      </div>
     `;
   });
-
-  document.getElementById("tableBody").innerHTML = table;
-
-  generateReport();
 }
-
-function generateReport() {
-  const total = leads.length;
-  const students = leads.filter(l => l.type === "Student").length;
-  const families = leads.filter(l => l.type === "Family").length;
-  const high = leads.filter(l => l.priority === "High").length;
-
-  document.getElementById("reportText").innerText =
-    `Total Demand: ${total} leads.
-Students: ${students}
-Families: ${families}
-High Priority Demand: ${high}
-
-Insight: Demand is strongest in rental and student housing segments.`;
-}
-
-updateUI();
 </script>
 
 </body>
